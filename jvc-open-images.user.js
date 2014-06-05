@@ -36,7 +36,6 @@ header.appendChild(openImage);
 header.appendChild(openLink);
 
 var imagesExt = ['jpg', 'png', 'gif', 'bmp'];
-var linksExt  = ['html', 'htm', 'php'];
 
 function openImages()
 {
@@ -44,7 +43,7 @@ function openImages()
         var linkExp   = links[i].href.split('.');
         var extension = linkExp[linkExp.length - 1];
         var inArray   = imagesExt.indexOf(extension);
-        if (inArray != -1) {
+        if (inArray !== -1) {
             open(links[i].href);
         }
     }
@@ -55,8 +54,8 @@ function openLinks()
     for (var i = 0; i < links.length; i++) {
         var linkExp   = links[i].href.split('.');
         var extension = linkExp[linkExp.length - 1];
-        var inArray   = linksExt.indexOf(extension);
-        if (inArray != -1) {
+        var inArray = imagesExt.indexOf(extension);
+        if (inArray === -1) {
             open(links[i].href);
         }
     }
