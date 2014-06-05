@@ -53,7 +53,6 @@ function openImages()
 function openLinks()
 {
     for (var i = 0; i < links.length; i++) {
-        //unsafeWindow.console.log(links[i].href.split('.'));
         var linkExp   = links[i].href.split('.');
         var extension = linkExp[linkExp.length - 1];
         var inArray   = linksExt.indexOf(extension);
