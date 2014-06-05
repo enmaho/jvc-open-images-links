@@ -2,7 +2,7 @@
 // @name jvc-open-images
 // @namespace hap
 // @include http://www.jeuxvideo.com/forums/1-*
-// @version 0.1
+// @version 1.0
 // @grant none
 // ==/UserScript==
 
