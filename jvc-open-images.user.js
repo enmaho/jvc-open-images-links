@@ -15,9 +15,22 @@ openImage.innerHTML = "Ouvrir toutes les images";
 openImage.href      = "#";
 openImage.onclick   = openImages;
 
+header.style.overflow = "hidden";
+
+openImage.style.marginTop    = "5px";
+openImage.style.marginBottom = "5px";
+openImage.style.display      = "block";
+openImage.style.width        = "200px";
+openImage.style.cssFloat     = "left"
+
 openLink.innerHTML = "Ouvrir tous les liens";
 openLink.href      = "#";
 openLink.onclick   = openLinks;
+
+openLink.style.marginTop    = "5px";
+openLink.style.marginBottom = "5px";
+openLink.style.display      = "block";
+openLink.style.cssFloat     = "right"
 
 header.appendChild(openImage);
 header.appendChild(openLink);
