@@ -35,7 +35,7 @@ openLink.style.cssFloat     = "right"
 header.appendChild(openImage);
 header.appendChild(openLink);
 
-var imagesExt = ['jpg', 'png', 'gif', 'bmp'];
+var imagesExt = ['jpg', 'jpeg', 'png', 'gif', 'bmp'];
 
 function openImages()
 {
