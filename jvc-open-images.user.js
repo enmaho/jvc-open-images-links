@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name jvc-open-images
 // @namespace hap
-// @include http://www.jeuxvideo.com/forums/1-*
+// @include http://www.jeuxvideo.com/forums/42-*
 // @version 1.0
 // @grant none
 // ==/UserScript==
 
-var links     = document.querySelectorAll('.msg .post a');
-var header    = document.querySelectorAll('.bloc_forum .bloc_inner')[0];
+var links     = $('.conteneur-messages-pagi .bloc-message-forum .conteneur-message .bloc-contenu .txt-msg p a');
+var header    = document.querySelectorAll('.bloc-pre-pagi-forum')[0];
 var openImage = document.createElement('a');
 var openLink  = document.createElement('a');
 
@@ -35,7 +35,7 @@ openLink.style.cssFloat     = "right"
 header.appendChild(openImage);
 header.appendChild(openLink);
 
-var imagesExt = ['jpg', 'png', 'gif', 'bmp'];
+var imagesExt = ['jpg', 'jpeg', 'png', 'gif', 'bmp'];
 
 function openImages()
 {
@@ -60,3 +60,4 @@ function openLinks()
         }
     }
 }
+
