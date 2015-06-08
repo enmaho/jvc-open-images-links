@@ -5,7 +5,6 @@
 // @version 1.0.0
 // ==/UserScript==
 
-var links = document.querySelectorAll('.txt-msg a')
 var bloc = document.querySelector('.lien-pratique-gestion')
 
 bloc.appendChild(document.createElement('br'))
@@ -14,6 +13,7 @@ bloc.appendChild(document.createTextNode(' - '))
 bloc.appendChild(makeButton('Ouvrir tous les liens', openLinks))
 
 function openImages () {
+  var links = getLinks()
   for (var i = 0; i < links.length; i++) {
     if (isImage(links[i].href)) {
       window.open(links[i].href)
@@ -22,11 +22,16 @@ function openImages () {
 }
 
 function openLinks () {
+  var links = getLinks()
   for (var i = 0; i < links.length; i++) {
     if (!isImage(links[i].href)) {
       window.open(links[i].href)
     }
   }
+}
+
+function getLinks () {
+  return document.querySelectorAll('.txt-msg a')
 }
 
 function isImage (url) {
