@@ -13,14 +13,9 @@ bloc.appendChild(makeButton('Ouvrir toutes les images', openImages))
 bloc.appendChild(document.createTextNode(' - '))
 bloc.appendChild(makeButton('Ouvrir tous les liens', openLinks))
 
-var imagesExt = ['jpg', 'jpeg', 'png', 'gif', 'bmp']
-
 function openImages () {
   for (var i = 0; i < links.length; i++) {
-    var linkExp = links[i].href.split('.')
-    var extension = linkExp[linkExp.length - 1]
-    var inArray = imagesExt.indexOf(extension)
-    if (inArray !== -1) {
+    if (isImage(links[i].href)) {
       window.open(links[i].href)
     }
   }
@@ -28,13 +23,14 @@ function openImages () {
 
 function openLinks () {
   for (var i = 0; i < links.length; i++) {
-    var linkExp = links[i].href.split('.')
-    var extension = linkExp[linkExp.length - 1]
-    var inArray = imagesExt.indexOf(extension)
-    if (inArray === -1) {
+    if (!isImage(links[i].href)) {
       window.open(links[i].href)
     }
   }
+}
+
+function isImage (url) {
+  return /\.(jpe?g|png|gif|bmp)$/.test(url)
 }
 
 function makeButton (text, cb) {
