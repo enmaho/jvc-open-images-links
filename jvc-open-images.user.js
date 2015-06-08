@@ -13,25 +13,29 @@ bloc.appendChild(document.createTextNode(' - '))
 bloc.appendChild(makeButton('Ouvrir tous les liens', openLinks))
 
 function openImages () {
-  var links = getLinks()
-  for (var i = 0; i < links.length; i++) {
-    if (isImage(links[i].href)) {
-      window.open(links[i].href)
-    }
-  }
+  openFilter(isImage)
 }
 
 function openLinks () {
-  var links = getLinks()
-  for (var i = 0; i < links.length; i++) {
-    if (!isImage(links[i].href)) {
-      window.open(links[i].href)
-    }
+  openFilter(isNotImage)
+}
+
+function openFilter (filter) {
+  getLinks().filter(filter).map(get('href')).forEach(window.open)
+}
+
+function get (prop) {
+  return function (object) {
+    return object[prop]
   }
 }
 
 function getLinks () {
-  return document.querySelectorAll('.txt-msg a')
+  return Array.from(document.querySelectorAll('.txt-msg a'))
+}
+
+function isNotImage (url) {
+  return !isImage(url)
 }
 
 function isImage (url) {
