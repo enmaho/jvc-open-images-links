@@ -6,33 +6,24 @@
 // ==/UserScript==
 
 var links = document.querySelectorAll('.conteneur-messages-pagi .bloc-message-forum .conteneur-message .bloc-contenu .txt-msg p a')
-var header = document.querySelectorAll('.bloc-pre-pagi-forum')[0]
+var bloc = document.querySelector('.lien-pratique-gestion')
 var openImage = document.createElement('a')
 var openLink = document.createElement('a')
 
 openImage.innerHTML = 'Ouvrir toutes les images'
 openImage.href = '#'
 openImage.onclick = openImages
-
-header.style.overflow = 'hidden'
-
-openImage.style.marginTop = '5px'
-openImage.style.marginBottom = '5px'
-openImage.style.display = 'block'
-openImage.style.width = '200px'
-openImage.style.cssFloat = 'left'
+openImage.className = 'lien-jv'
 
 openLink.innerHTML = 'Ouvrir tous les liens'
 openLink.href = '#'
 openLink.onclick = openLinks
+openLink.className = 'lien-jv'
 
-openLink.style.marginTop = '5px'
-openLink.style.marginBottom = '5px'
-openLink.style.display = 'block'
-openLink.style.cssFloat = 'right'
-
-header.appendChild(openImage)
-header.appendChild(openLink)
+bloc.appendChild(document.createElement('br'))
+bloc.appendChild(openImage)
+bloc.appendChild(document.createTextNode(' - '))
+bloc.appendChild(openLink)
 
 var imagesExt = ['jpg', 'jpeg', 'png', 'gif', 'bmp']
 
