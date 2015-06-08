@@ -1,6 +1,7 @@
 // ==UserScript==
 // @name jvc-open-images
 // @namespace hap
+// @include http://www.jeuxvideo.com/forums/1-*
 // @include http://www.jeuxvideo.com/forums/42-*
 // @version 1.0
 // @grant none
