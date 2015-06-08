@@ -7,23 +7,11 @@
 
 var links = document.querySelectorAll('.conteneur-messages-pagi .bloc-message-forum .conteneur-message .bloc-contenu .txt-msg p a')
 var bloc = document.querySelector('.lien-pratique-gestion')
-var openImage = document.createElement('a')
-var openLink = document.createElement('a')
-
-openImage.innerHTML = 'Ouvrir toutes les images'
-openImage.href = '#'
-openImage.onclick = openImages
-openImage.className = 'lien-jv'
-
-openLink.innerHTML = 'Ouvrir tous les liens'
-openLink.href = '#'
-openLink.onclick = openLinks
-openLink.className = 'lien-jv'
 
 bloc.appendChild(document.createElement('br'))
-bloc.appendChild(openImage)
+bloc.appendChild(makeButton('Ouvrir toutes les images', openImages))
 bloc.appendChild(document.createTextNode(' - '))
-bloc.appendChild(openLink)
+bloc.appendChild(makeButton('Ouvrir tous les liens', openLinks))
 
 var imagesExt = ['jpg', 'jpeg', 'png', 'gif', 'bmp']
 
@@ -47,4 +35,19 @@ function openLinks () {
       window.open(links[i].href)
     }
   }
+}
+
+function makeButton (text, cb) {
+  var link = document.createElement('a')
+
+  link.textContent = text
+  link.href = '#'
+  link.className = 'lien-jv'
+
+  link.addEventListener('click', function (event) {
+    event.preventDefault()
+    cb(event)
+  })
+
+  return link
 }
