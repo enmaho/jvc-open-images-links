@@ -3,7 +3,7 @@
 // @namespace hap
 // @include http://www.jeuxvideo.com/forums/1-*
 // @include http://www.jeuxvideo.com/forums/42-*
-// @version 1.0
+// @version 1.0.0
 // ==/UserScript==
 
 var links     = $('.conteneur-messages-pagi .bloc-message-forum .conteneur-message .bloc-contenu .txt-msg p a');
