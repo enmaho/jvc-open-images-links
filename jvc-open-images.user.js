@@ -2,7 +2,7 @@
 // @name jvc-open-images
 // @namespace hap
 // @include /^https?://www\.jeuxvideo\.com/forums/(1|42)-.*$/
-// @version 1.0.0
+// @version 1.1.0
 // ==/UserScript==
 
 var bloc = document.querySelector('.lien-pratique-gestion')
