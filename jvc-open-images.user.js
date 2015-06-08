@@ -5,7 +5,7 @@
 // @version 1.0.0
 // ==/UserScript==
 
-var links = document.querySelectorAll('.conteneur-messages-pagi .bloc-message-forum .conteneur-message .bloc-contenu .txt-msg p a')
+var links = document.querySelectorAll('.txt-msg a')
 var bloc = document.querySelector('.lien-pratique-gestion')
 
 bloc.appendChild(document.createElement('br'))
