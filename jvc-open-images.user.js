@@ -21,7 +21,11 @@ function openLinks () {
 }
 
 function openFilter (filter) {
-  getLinks().filter(filter).map(get('href')).forEach(window.open)
+  getLinks()
+    .filter(isNotQuoted)
+    .map(get('href'))
+    .filter(filter)
+    .forEach(window.open)
 }
 
 function get (prop) {
@@ -32,6 +36,14 @@ function get (prop) {
 
 function getLinks () {
   return Array.from(document.querySelectorAll('.txt-msg a'))
+}
+
+function isNotQuoted (element) {
+  return !isQuoted(element)
+}
+
+function isQuoted (element) {
+  return element.matches('blockquote ' + element.nodeName)
 }
 
 function isNotImage (url) {
