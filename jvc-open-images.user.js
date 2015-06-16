@@ -39,7 +39,7 @@ function isNotImage (url) {
 }
 
 function isImage (url) {
-  return /\.(jpe?g|png|gif|bmp)$/.test(url)
+  return /\.(jpe?g|png|gif|bmp|webm)$/.test(url)
 }
 
 function makeButton (text, cb) {
