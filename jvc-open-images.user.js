@@ -12,25 +12,36 @@ bloc.appendChild(makeButton('Ouvrir toutes les images', openImages))
 bloc.appendChild(document.createTextNode(' - '))
 bloc.appendChild(makeButton('Ouvrir tous les liens', openLinks))
 
-function openImages () {
-  openFilter(isImage)
+function openImages (event) {
+  openFilter(isImage, strike(event))
 }
 
-function openLinks () {
-  openFilter(isNotImage)
+function openLinks (event) {
+  openFilter(isNotImage, strike(event))
 }
 
-function openFilter (filter) {
-  getLinks()
+function openFilter (filter, empty) {
+  var urls = getLinks()
     .filter(isNotQuoted)
     .map(get('href'))
     .filter(filter)
-    .forEach(window.open)
+
+  if (!urls.length) {
+    empty()
+  } else {
+    urls.forEach(window.open)
+  }
 }
 
 function get (prop) {
   return function (object) {
     return object[prop]
+  }
+}
+
+function strike (event) {
+  return function () {
+    event.target.style.textDecoration = 'line-through'
   }
 }
 
